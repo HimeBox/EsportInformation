@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EsportInformation</string>
+    <string name="title_home">Top Matches</string>
+    <string name="title_schedule">My Schedule</string>
+    <string name="title_search">Search</string>
+    <string name="title_settings">Settings</string>
+</resources>
