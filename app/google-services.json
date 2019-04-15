@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "24774907811",
+    "firebase_url": "https://esportinformation-b96f5.firebaseio.com",
+    "project_id": "esportinformation-b96f5",
+    "storage_bucket": "esportinformation-b96f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24774907811:android:0fed974c97d83344",
+        "android_client_info": {
+          "package_name": "com.example.esportinformation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24774907811-b0gl10vvslngqk4ofhatvq2pd7fmbr7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.esportinformation",
+            "certificate_hash": "828d8fa2a179f22c4821f73cc87b1ada4babd8fc"
+          }
+        },
+        {
+          "client_id": "24774907811-sjmi4h90v5uo77hoom1j8pqgpn4uvmp9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjyUXXAJ1M3CzZWBiKSJLg_E6tnSDSEz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24774907811-sjmi4h90v5uo77hoom1j8pqgpn4uvmp9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
