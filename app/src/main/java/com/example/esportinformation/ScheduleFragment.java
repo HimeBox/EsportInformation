@@ -33,6 +33,6 @@ public class ScheduleFragment extends Fragment {
             context += "05/xx/2019 17:00";
             mList.add(context);
         }
-        mainList.setAdapter(new MainAdapter(mList,getContext()));
+        mainList.setAdapter(new ScheduleAdapter(mList,getContext()));
     }
 }

@@ -26,17 +26,8 @@ public class SettingFragment extends Fragment {
         // In order to use findViewById in fragment, the view return by onCreateView is needed
         ListView mainList = view.findViewById(R.id.setting_list);
         String contextA = "";
-        contextA += "Search Options";
+        contextA += "Quit";
         mList.add(contextA);
-        String contextB = "";
-        contextB += "Font Size";
-        mList.add(contextB);
-        String contextC = "";
-        contextC += "Something to do";
-        mList.add(contextC);
-        String contextD = "";
-        contextD += "Something to do";
-        mList.add(contextD);
-        mainList.setAdapter(new MainAdapter(mList,getContext()));
+        mainList.setAdapter(new SettingAdapter(mList,this.getActivity()));
     }
 }

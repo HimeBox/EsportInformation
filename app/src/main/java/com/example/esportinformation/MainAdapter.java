@@ -14,15 +14,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.esportinformation.MainActivity.DETAIL_MESSAGE;
+
 
 // Adapter made by my self to add unit to ListView
 public class MainAdapter extends BaseAdapter implements ListAdapter {
     private List<String> list = new ArrayList<String>();
+    private List<Integer> id_list = new ArrayList<Integer>();
     private Context context;
 
 
-    public MainAdapter(List<String> list, Context context) {
+    public MainAdapter(List<String> list,List<Integer> id_list, Context context) {
         this.list = list;
+        this.id_list = id_list;
         this.context = context;
     }
 
@@ -59,7 +63,10 @@ public class MainAdapter extends BaseAdapter implements ListAdapter {
         linkBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, MatchActivity.class);
+                String match_id = id_list.get(position).toString();
+                intent.putExtra(DETAIL_MESSAGE, match_id);
+                context.startActivity(intent);
             }
         });
 
