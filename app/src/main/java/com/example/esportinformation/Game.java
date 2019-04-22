@@ -3,7 +3,10 @@ package com.example.esportinformation;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Game {
+import java.io.Serializable;
+import java.util.List;
+
+public class Game implements Serializable {
 
     @SerializedName("begin_at")
     @Expose
@@ -17,12 +20,27 @@ public class Game {
     @SerializedName("length")
     @Expose
     private Object length;
+    @SerializedName("map")
+    @Expose
+    private Object map;
+    @SerializedName("match")
+    @Expose
+    private Match match;
     @SerializedName("match_id")
     @Expose
     private Integer matchId;
+    @SerializedName("players")
+    @Expose
+    private List<Player> players = null;
     @SerializedName("position")
     @Expose
     private Integer position;
+    @SerializedName("rounds")
+    @Expose
+    private List<Round> rounds = null;
+    @SerializedName("teams")
+    @Expose
+    private List<Team_> teams = null;
     @SerializedName("winner")
     @Expose
     private Winner winner;
@@ -62,6 +80,22 @@ public class Game {
         this.length = length;
     }
 
+    public Object getMap() {
+        return map;
+    }
+
+    public void setMap(Object map) {
+        this.map = map;
+    }
+
+    public Match getMatch() {
+        return match;
+    }
+
+    public void setMatch(Match match) {
+        this.match = match;
+    }
+
     public Integer getMatchId() {
         return matchId;
     }
@@ -70,12 +104,36 @@ public class Game {
         this.matchId = matchId;
     }
 
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
     public Integer getPosition() {
         return position;
     }
 
     public void setPosition(Integer position) {
         this.position = position;
+    }
+
+    public List<Round> getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(List<Round> rounds) {
+        this.rounds = rounds;
+    }
+
+    public List<Team_> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team_> teams) {
+        this.teams = teams;
     }
 
     public Winner getWinner() {

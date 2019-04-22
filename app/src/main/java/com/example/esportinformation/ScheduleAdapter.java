@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +23,16 @@ import static android.support.v4.app.ActivityCompat.finishAffinity;
 public class ScheduleAdapter extends BaseAdapter implements ListAdapter {
     private List<String> list = new ArrayList<String>();
     private Context context;
+    LayoutInflater inflater;
+    MatchStorage matchStorage;
 
 
-    public ScheduleAdapter(List<String> list, Context context) {
+
+    public ScheduleAdapter(List<String> list, MatchStorage matchStorage, Context context) {
         this.list = list;
         this.context = context;
+        this.inflater = LayoutInflater.from(context);
+        this.matchStorage = matchStorage;
     }
 
     @Override
@@ -43,7 +51,7 @@ public class ScheduleAdapter extends BaseAdapter implements ListAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, final View convertView, ViewGroup parent) {
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -60,7 +68,9 @@ public class ScheduleAdapter extends BaseAdapter implements ListAdapter {
         linkBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
+                matchStorage.deleteItem(position);
+                matchStorage.save();
+                Toast.makeText(context,"Match deleted! Reload page to see.",Toast.LENGTH_LONG).show();
             }
         });
 

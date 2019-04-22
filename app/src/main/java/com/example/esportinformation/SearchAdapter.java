@@ -19,6 +19,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,24 +76,12 @@ public class SearchAdapter extends BaseAdapter implements ListAdapter {
         linkBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                DatabaseReference mDatabase;
-                mDatabase = FirebaseDatabase.getInstance().getReference();
-
-                ValueEventListener postListener = new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get Post object and use the values to update the UI
-                        old_list = dataSnapshot.getValue(List.class);
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        // Getting Post failed, log a message
-                    }
-                };
-                mDatabase.addValueEventListener(postListener);
-                old_list.add(match_list.get(position));
-                mDatabase.child("matches").setValue(old_list);
+                MatchStorage matchStorage = new MatchStorage(new ArrayList<Match>(), new ArrayList<Integer>(), context);
+                matchStorage.read();
+                if(matchStorage.addItem(match_list.get(position),match_list.get(position).getId())){
+                    matchStorage.save();
+                    Toast.makeText(context,"Match added and saved!",Toast.LENGTH_LONG).show();
+                }
             }
         });
 

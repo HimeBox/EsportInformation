@@ -3,7 +3,9 @@ package com.example.esportinformation;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Winner {
+import java.io.Serializable;
+
+public class Winner implements Serializable {
     @SerializedName("id")
     @Expose
     private Object id;

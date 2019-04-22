@@ -3,9 +3,10 @@ package com.example.esportinformation;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Match {
+public class Match implements Serializable {
     @SerializedName("begin_at")
     @Expose
     private Object beginAt;

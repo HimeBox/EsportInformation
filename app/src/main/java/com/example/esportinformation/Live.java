@@ -3,7 +3,9 @@ package com.example.esportinformation;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Live {
+import java.io.Serializable;
+
+public class Live implements Serializable {
     @SerializedName("opens_at")
     @Expose
     private Object opensAt;

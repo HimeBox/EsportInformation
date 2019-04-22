@@ -20,8 +20,14 @@ public interface PandaApi {
     @GET("/csgo/matches/upcoming")
     Call<List<Match>> getUpcomingMatch(@Query("token") String token);
 
+    @GET("/csgo/matches")
+    Call<List<Match>> searchName(
+            @Query("search[name]") String query,
+            @Query("token") String token
+    );
+
     @GET("/csgo/matches/{match_id}/games")
-    Call<List> getGames(
+    Call<List<Game>> getGames(
             @Path("match_id") String match_id,
             @Query("token") String token
     );

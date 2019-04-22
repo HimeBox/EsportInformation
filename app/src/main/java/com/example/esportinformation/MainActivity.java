@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public static final String DETAIL_MESSAGE = "More Detail";
+    public static final String SEARCH_MESSAGE = "Do Search";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

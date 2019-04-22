@@ -5,16 +5,31 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Videogame implements Serializable {
+public class Team implements Serializable {
+
+    @SerializedName("acronym")
+    @Expose
+    private Object acronym;
     @SerializedName("id")
     @Expose
     private Integer id;
+    @SerializedName("image_url")
+    @Expose
+    private String imageUrl;
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("slug")
     @Expose
-    private String slug;
+    private Object slug;
+
+    public Object getAcronym() {
+        return acronym;
+    }
+
+    public void setAcronym(Object acronym) {
+        this.acronym = acronym;
+    }
 
     public Integer getId() {
         return id;
@@ -22,6 +37,14 @@ public class Videogame implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -32,11 +55,12 @@ public class Videogame implements Serializable {
         this.name = name;
     }
 
-    public String getSlug() {
+    public Object getSlug() {
         return slug;
     }
 
-    public void setSlug(String slug) {
+    public void setSlug(Object slug) {
         this.slug = slug;
     }
+
 }

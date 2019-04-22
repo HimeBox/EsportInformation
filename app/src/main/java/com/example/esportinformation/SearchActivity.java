@@ -1,18 +1,18 @@
 package com.example.esportinformation;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.koushikdutta.ion.Ion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,17 +22,18 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainFragment extends Fragment {
-    @Nullable
+public class SearchActivity extends AppCompatActivity implements Serializable {
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.main_fragment,null);
-        setText(view);
-        return view;
-    }
-    public void setText(final View view){
-        // Hardcoded to show example content
-        // Build Gson, can be ignored as GsonConverterFactorey will automatically do that for you
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+        String query = intent.getStringExtra(MainActivity.SEARCH_MESSAGE);
+
         String token = "eTo2CCMVy4iacpdyTP8Kj6xacgUGDMW9F1x-c--cR9U6bZtd-Ow";
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
@@ -46,7 +47,7 @@ public class MainFragment extends Fragment {
 
         PandaApi pandaApi = retrofit.create(PandaApi.class);
 
-        Call<List<Match>> call = pandaApi.getRunningMatch(token); // Add user here!
+        Call<List<Match>> call = pandaApi.searchName(query,token); // Add user here!
         call.enqueue(new Callback<List<Match>>() {
             // We use implemented enqueue function to avoid multiple calls caused by serval activities.
             // However at that moment the app itself only have 1 activity.
@@ -59,7 +60,6 @@ public class MainFragment extends Fragment {
                 // Grab data from object created by Retrofit.
                 List<Match> matches = response.body();
                 List<String> mList = new ArrayList<>();
-                List<Integer> idList = new ArrayList<>();
                 int c = 0;
                 for(Match match : matches){
                     String context = "";
@@ -68,16 +68,15 @@ public class MainFragment extends Fragment {
                     context += match.getTournament().getSlug() + "\n";
                     context += match.getTournament().getName();
                     mList.add(context);
-                    idList.add(match.getId());
                     c += 1;
-                    if(c > 30){
+                    if(c > 100){
                         break;
                     }
                 }
                 // In order to use findViewById in fragment, the view return by onCreateView is needed
-                ListView mainList = view.findViewById(R.id.main_list);
+                ListView mainList = findViewById(R.id.search_list);
 
-                mainList.setAdapter(new MainAdapter(mList,idList,getContext()));
+                mainList.setAdapter(new SearchAdapter(mList,matches,SearchActivity.this));
             }
             // If something went wrong, display it on the screen.
             @Override
@@ -86,6 +85,6 @@ public class MainFragment extends Fragment {
             }
         });
 
-
     }
+
 }

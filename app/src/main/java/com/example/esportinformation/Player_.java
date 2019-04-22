@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Opponent_ implements Serializable {
+public class Player_ implements Serializable {
+
     @SerializedName("first_name")
     @Expose
     private Object firstName;
@@ -17,7 +18,7 @@ public class Opponent_ implements Serializable {
     private Integer id;
     @SerializedName("image_url")
     @Expose
-    private Object imageUrl;
+    private String imageUrl;
     @SerializedName("last_name")
     @Expose
     private Object lastName;
@@ -55,11 +56,11 @@ public class Opponent_ implements Serializable {
         this.id = id;
     }
 
-    public Object getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(Object imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 
@@ -94,4 +95,5 @@ public class Opponent_ implements Serializable {
     public void setSlug(Object slug) {
         this.slug = slug;
     }
+
 }
