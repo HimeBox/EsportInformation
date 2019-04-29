@@ -1,25 +1,21 @@
-package com.example.esportinformation;
+package GameDetail;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.esportinformation.MainActivity;
+import com.example.esportinformation.PandaApi;
+import com.example.esportinformation.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -30,9 +26,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MatchActivity extends AppCompatActivity {
-
-    Timer timer=new Timer();//Used for a delay to provide user feedback
-    Handler handler;
+    public List<Game> games;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +35,11 @@ public class MatchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
-        String match_id = intent.getStringExtra(MainActivity.DETAIL_MESSAGE);
+        final String match_id = intent.getStringExtra(MainActivity.DETAIL_MESSAGE);
+        getGameList(match_id);
+    }
 
+    public void getGameList(String match_id){
         String token = "eTo2CCMVy4iacpdyTP8Kj6xacgUGDMW9F1x-c--cR9U6bZtd-Ow";
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
@@ -68,7 +65,7 @@ public class MatchActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Game>> call, Response<List<Game>> response) {
                 // Grab data from object created by Retrofit.
-                List<Game> games = response.body();
+                games = response.body();
                 setup(games);
             }
             // If something went wrong, display it on the screen.
@@ -77,8 +74,6 @@ public class MatchActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void setup(List<Game> games){
@@ -101,7 +96,6 @@ public class MatchActivity extends AppCompatActivity {
         String team1_name = games.get(0).getTeams().get(0).getName();
         TextView team_name1 = findViewById(R.id.team_name1);
         team_name1.setText(team1_name);
-        timer.schedule(new SmallDelay(), 100);
         ImageView team_image1 = findViewById(R.id.team_image1);
         Ion.with(team_image1).load(games.get(0).getTeams().get(0).getImageUrl());
 
@@ -116,10 +110,10 @@ public class MatchActivity extends AppCompatActivity {
 
         // Assign players to each team
         List<Player> players = games.get(0).getPlayers();
-        List<Player> team1_player = new ArrayList<>();
-        List<Player> team2_player = new ArrayList<>();
+        List<Player> team1_player = new ArrayList<Player>();
+        List<Player> team2_player = new ArrayList<Player>();
         for(Player player : players){
-            if(player.getTeam().getId() == team1_id){
+            if(player.getTeam().getName().equals(team1_name)){
                 team1_player.add(player);
             }
             else{
@@ -190,34 +184,34 @@ public class MatchActivity extends AppCompatActivity {
         // Loop through games to get map and stat
         Integer counter = 1;
         for(Game game : games){
-            map_info += "\nG" + counter + " " + game.getMap();
+            map_info += "\nG" + counter + " " + game.getMap().getName();
             List<Player> players_ = game.getPlayers();
             for(Player player : players_){
-                if(player.getPlayer().getId() == player1_id){
+                if(player.getPlayer().getId().equals(player1_id)){
                     player1_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player2_id){
+                else if(player.getPlayer().getId().equals(player2_id)){
                     player2_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player3_id){
+                else if(player.getPlayer().getId().equals(player3_id)){
                     player3_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player4_id){
+                else if(player.getPlayer().getId().equals(player4_id)){
                     player4_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player5_id){
+                else if(player.getPlayer().getId().equals(player5_id)){
                     player5_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player6_id){
+                else if(player.getPlayer().getId().equals(player6_id)){
                     player6_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player7_id){
+                else if(player.getPlayer().getId().equals(player7_id)){
                     player7_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player8_id){
+                else if(player.getPlayer().getId().equals(player8_id)){
                     player8_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
-                else if(player.getPlayer().getId() == player9_id){
+                else if(player.getPlayer().getId().equals(player9_id)){
                     player9_stat += "G" + counter + " " + player.getKills() + "/" + player.getAssists() + "/" + player.getDeaths() + " ADR:" + player.getAdr() + " Rating:" + player.getRating() + "\n";
                 }
                 else{
@@ -259,11 +253,8 @@ public class MatchActivity extends AppCompatActivity {
 
         TextView player10_info = findViewById(R.id.player10_stat);
         player10_info.setText(player10_stat);
+
+
     }
 
-    class SmallDelay extends TimerTask {
-        public void run() {
-            handler.sendEmptyMessage(0);
-        }
-    }
 }

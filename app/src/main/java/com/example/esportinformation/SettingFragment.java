@@ -28,6 +28,9 @@ public class SettingFragment extends Fragment {
         String contextA = "";
         contextA += "Quit";
         mList.add(contextA);
+        String contextB = "";
+        contextB += "Delete internal storage";
+        mList.add(contextB);
         mainList.setAdapter(new SettingAdapter(mList,this.getActivity()));
     }
 }

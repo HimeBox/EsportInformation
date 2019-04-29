@@ -1,4 +1,4 @@
-package com.example.esportinformation;
+package GameDetail;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,20 +6,12 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Result implements Serializable {
-    @SerializedName("score")
-    @Expose
-    private Integer score;
     @SerializedName("team_id")
     @Expose
     private Integer teamId;
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+    @SerializedName("score")
+    @Expose
+    private Integer score;
 
     public Integer getTeamId() {
         return teamId;
@@ -27,5 +19,13 @@ public class Result implements Serializable {
 
     public void setTeamId(Integer teamId) {
         this.teamId = teamId;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

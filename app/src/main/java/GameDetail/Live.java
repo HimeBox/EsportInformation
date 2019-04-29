@@ -1,4 +1,4 @@
-package com.example.esportinformation;
+package GameDetail;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,22 +6,22 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Live implements Serializable {
-    @SerializedName("opens_at")
+    @SerializedName("url")
     @Expose
-    private Object opensAt;
+    private String url;
     @SerializedName("supported")
     @Expose
     private Boolean supported;
-    @SerializedName("url")
+    @SerializedName("opens_at")
     @Expose
-    private Object url;
+    private String opensAt;
 
-    public Object getOpensAt() {
-        return opensAt;
+    public String getUrl() {
+        return url;
     }
 
-    public void setOpensAt(Object opensAt) {
-        this.opensAt = opensAt;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Boolean getSupported() {
@@ -32,11 +32,11 @@ public class Live implements Serializable {
         this.supported = supported;
     }
 
-    public Object getUrl() {
-        return url;
+    public String getOpensAt() {
+        return opensAt;
     }
 
-    public void setUrl(Object url) {
-        this.url = url;
+    public void setOpensAt(String opensAt) {
+        this.opensAt = opensAt;
     }
 }

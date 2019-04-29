@@ -6,21 +6,23 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+
+import MatchList.MainFragment;
+import MatchList.ScheduleFragment;
+import MatchList.SearchFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements BottomNavigationView.OnNavigationItemSelectedListener {
+        implements Serializable,BottomNavigationView.OnNavigationItemSelectedListener{
 
     public static final String DETAIL_MESSAGE = "More Detail";
     public static final String SEARCH_MESSAGE = "Do Search";
+    public static final String SEARCH_CONTENT = "Content of search";
+    public static final String SEARCH_FILTER = "Filter of search";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

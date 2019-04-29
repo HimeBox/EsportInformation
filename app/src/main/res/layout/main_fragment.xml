@@ -6,19 +6,19 @@
     <ListView
         android:id="@+id/main_list"
         android:layout_width="match_parent"
-        android:layout_height="613dp"
+        android:layout_height="529dp"
+        android:layout_above="@+id/hltv_btn"
         android:layout_below="@+id/main_divider"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="16dp"
         android:clickable="true" />
 
     <View
@@ -44,4 +44,16 @@
         android:text="@string/title_home"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/hltv_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="See more news on hltv.org!" />
 </RelativeLayout>

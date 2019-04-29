@@ -1,4 +1,4 @@
-package com.example.esportinformation;
+package GameDetail;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,22 +6,22 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Videogame implements Serializable {
-    @SerializedName("id")
-    @Expose
-    private Integer id;
-    @SerializedName("name")
-    @Expose
-    private String name;
     @SerializedName("slug")
     @Expose
     private String slug;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
 
-    public Integer getId() {
-        return id;
+    public String getSlug() {
+        return slug;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 
     public String getName() {
@@ -32,11 +32,11 @@ public class Videogame implements Serializable {
         this.name = name;
     }
 
-    public String getSlug() {
-        return slug;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSlug(String slug) {
-        this.slug = slug;
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

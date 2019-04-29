@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,7 @@ import static com.example.esportinformation.MainActivity.DETAIL_MESSAGE;
 public class SettingAdapter extends BaseAdapter implements ListAdapter {
     private List<String> list = new ArrayList<String>();
     private Context context;
+    public String fileName = "schedule_list.txt";
 
 
     public SettingAdapter(List<String> list, Context context) {
@@ -62,8 +64,15 @@ public class SettingAdapter extends BaseAdapter implements ListAdapter {
         linkBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                finishAffinity((Activity)context);
-                System.exit(0);
+                if(position == 0){
+                    finishAffinity((Activity)context);
+                    System.exit(0);
+                }
+                else{
+                    context.deleteFile(fileName);
+                    Toast.makeText(context,"Internal storage deleted!",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

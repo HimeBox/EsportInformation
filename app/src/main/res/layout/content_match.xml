@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MatchActivity"
+    tools:context="GameDetail.MatchActivity"
     tools:showIn="@layout/activity_match">
 
     <ImageView
@@ -17,7 +17,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@android:drawable/screen_background_light_transparent" />
 
     <ImageView
         android:id="@+id/team_image2"
@@ -47,6 +47,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/team_image1" />
 
@@ -58,6 +59,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="team2"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/team_image2" />
 
@@ -326,8 +328,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="G1 0/0/0 ADR:00 rating:1"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player1_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player1_image"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
@@ -338,8 +340,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player2_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player2_image"
         app:layout_constraintTop_toBottomOf="@+id/player1_name" />
 
     <TextView
@@ -350,8 +352,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player3_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player3_image"
         app:layout_constraintTop_toBottomOf="@+id/player2_name" />
 
     <TextView
@@ -362,8 +364,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player4_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player4_image"
         app:layout_constraintTop_toBottomOf="@+id/player3_name" />
 
     <TextView
@@ -374,8 +376,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player5_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player5_image"
         app:layout_constraintTop_toBottomOf="@+id/player4_name" />
 
     <TextView
@@ -386,8 +388,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player6_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player6_image"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
@@ -398,8 +400,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player7_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player7_image"
         app:layout_constraintTop_toBottomOf="@+id/player6_name" />
 
     <TextView
@@ -410,8 +412,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player8_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player8_image"
         app:layout_constraintTop_toBottomOf="@+id/player7_name" />
 
     <TextView
@@ -422,8 +424,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player9_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player9_image"
         app:layout_constraintTop_toBottomOf="@+id/player8_name" />
 
     <TextView
@@ -434,8 +436,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/player10_name"
+        android:textSize="8sp"
+        app:layout_constraintStart_toEndOf="@+id/player10_image"
         app:layout_constraintTop_toBottomOf="@+id/player9_name" />
 
 </android.support.constraint.ConstraintLayout>

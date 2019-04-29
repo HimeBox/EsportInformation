@@ -1,5 +1,8 @@
-package com.example.esportinformation;
+package MatchList;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,11 +10,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.example.esportinformation.MainAdapter;
+import com.example.esportinformation.PandaApi;
+import com.example.esportinformation.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.koushikdutta.ion.Ion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +29,23 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.support.v4.app.ActivityCompat.finishAffinity;
+
 public class MainFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_fragment,null);
         setText(view);
+        Button hltvBtn = (Button)view.findViewById(R.id.hltv_btn);
+
+        hltvBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.hltv.org/"));
+                getContext().startActivity(browserIntent);
+            }
+        });
         return view;
     }
     public void setText(final View view){

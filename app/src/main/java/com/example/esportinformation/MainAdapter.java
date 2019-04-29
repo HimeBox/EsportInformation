@@ -2,7 +2,6 @@ package com.example.esportinformation;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import GameDetail.MatchActivity;
 
 import static com.example.esportinformation.MainActivity.DETAIL_MESSAGE;
 

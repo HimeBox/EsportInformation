@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SearchActivity"
+            android:name="MatchList.SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".MatchActivity"
+            android:name="GameDetail.MatchActivity"
             android:label="@string/title_activity_match"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
