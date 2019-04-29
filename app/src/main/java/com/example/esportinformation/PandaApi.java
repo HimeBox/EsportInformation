@@ -24,14 +24,14 @@ public interface PandaApi {
 
     @GET("/csgo/matches")
     Call<List<Match>> searchIdAll(
-            @Query("search[id]") String query,
+            @Query("filter[id]") String query,
             @Query("token") String token
     );
 
 
     @GET("/csgo/matches")
     Call<List<Match>> searchTimeAll(
-            @Query("search[begin_at]") String query,
+            @Query("filter[begin_at]") String query,
             @Query("token") String token
     );
 
@@ -44,7 +44,7 @@ public interface PandaApi {
 
     @GET("/csgo/matches")
     Call<List<Match>> searchIdStatus(
-            @Query("search[id]") String query,
+            @Query("filter[id]") String query,
             @Query("filter[status]") String status,
             @Query("token") String token
     );
@@ -52,7 +52,7 @@ public interface PandaApi {
 
     @GET("/csgo/matches")
     Call<List<Match>> searchTimeStatus(
-            @Query("search[begin_at]") String query,
+            @Query("filter[begin_at]") String query,
             @Query("filter[status]") String status,
             @Query("token") String token
     );

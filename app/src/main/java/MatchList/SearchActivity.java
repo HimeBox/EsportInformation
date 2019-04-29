@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.esportinformation.MainActivity;
 import com.example.esportinformation.PandaApi;
@@ -103,6 +104,10 @@ public class SearchActivity extends AppCompatActivity implements Serializable {
                 // Grab data from object created by Retrofit.
                 List<Match> matches = response.body();
                 List<String> mList = new ArrayList<>();
+                if(matches.size() == 0){
+                    Toast.makeText(getBaseContext(),"No Results found!",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 int c = 0;
                 for(Match match : matches){
                     String context = "";
@@ -131,7 +136,7 @@ public class SearchActivity extends AppCompatActivity implements Serializable {
             // If something went wrong, display it on the screen.
             @Override
             public void onFailure(Call<List<Match>> call, Throwable t) {
-
+                Toast.makeText(getBaseContext(),"Search failed!",Toast.LENGTH_LONG).show();
             }
         });
 
